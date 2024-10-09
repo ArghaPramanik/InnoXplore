@@ -5,8 +5,25 @@ import Tagline from "./Tagline";
 import { roadmap } from "../constants";
 import { check2, grid, loading1 } from "../assets";
 import { Gradient } from "./design/Roadmap";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+const OurRoadMap = () => {
+  toast.success("🌟 Exciting developments ahead! Check out what’s coming next on our roadmap! 🗺️", {
+    position: "bottom-left",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+};
 
 const Roadmap = () => (
+
+  
+
   <Section className="overflow-hidden" id="roadmap">
     <div className="container md:pb-10">
       <Heading tag="Ready to get started" title="What we’re working on" />
@@ -69,7 +86,7 @@ const Roadmap = () => (
       </div>
 
       <div className="flex justify-center mt-12 md:mt-15 xl:mt-20">
-        <Button href="/roadmap">Our roadmap</Button>
+        <Button onClick={OurRoadMap}>Our roadmap</Button>
       </div>
     </div>
   </Section>

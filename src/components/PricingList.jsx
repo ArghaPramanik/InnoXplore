@@ -1,9 +1,33 @@
 import { check } from "../assets";
 import { pricing } from "../constants";
 import Button from "./Button";
-
+import { toast } from "react-toastify"; 
+import 'react-toastify/dist/ReactToastify.css';
 
 const PricingList = () => {
+  const handleGetStarted = () => {
+    toast.success("🚀 Get started feature coming soon! Stay tuned! 🔑",{
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const handleContactUs = () => {
+    toast.info("📧 Feel free to reach out to us at arghapramanik15@gmail.com!",{
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
     <div className="flex gap-[1rem] max-lg:flex-wrap">
       {pricing.map((item) => (
@@ -30,11 +54,10 @@ const PricingList = () => {
 
           <Button
             className="w-full mb-6"
-            href={item.price ? "/pricing" : "mailto:arghapramanik15@gmail.com"}
             white={!!item.price}
-            
+            onClick={item.price ? handleGetStarted : handleContactUs} // Call appropriate handler
           >
-            {item.price ? "Get started" : "Contact us" }
+            {item.price ? "Get started" : "Contact us"}
           </Button>
 
           <ul>

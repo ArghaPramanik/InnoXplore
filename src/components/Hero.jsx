@@ -8,9 +8,24 @@ import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Hero = () => {
   const parallaxRef = useRef(null);
+
+  const GetStarted = () => {
+    toast.success("✨ Ready to Explore? Sign-in Feature Launching Soon! 🔑", {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   return (
     <Section
@@ -39,7 +54,7 @@ const Hero = () => {
             Unleash the power of AI within InnoXplore. Upgrade your productivity
             with InnoXplore, the open AI chat app.
           </p>
-          <Button href="/pricing" white>
+          <Button  white onClick={GetStarted}>
             Get started
           </Button>
         </div>
