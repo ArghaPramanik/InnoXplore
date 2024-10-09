@@ -8,6 +8,9 @@ import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
 import { useState } from "react";
 
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 const Header = () => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
@@ -28,6 +31,32 @@ const Header = () => {
     enablePageScroll();
     setOpenNavigation(false);
   };
+
+  const notifySignIn = () => {
+    toast.info("🚀Sign-in functionality coming soon!🔑", {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const NewAccount  = () => {
+    
+    toast.error ("🚧 This landing page is for design purposes only! 🎨",{
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+ 
+  }
 
   return (
     <div
@@ -68,12 +97,13 @@ const Header = () => {
         </nav>
 
         <a
-          href="#signup"
+          
           className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
+          onClick={NewAccount}
         >
           New account
         </a>
-        <Button className="hidden lg:flex" href="#login">
+        <Button className="hidden lg:flex" onClick={notifySignIn}>
           Sign in
         </Button>
 
@@ -85,6 +115,7 @@ const Header = () => {
           <MenuSvg openNavigation={openNavigation} />
         </Button>
       </div>
+      
     </div>
   );
 };

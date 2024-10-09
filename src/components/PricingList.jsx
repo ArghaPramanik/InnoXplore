@@ -2,6 +2,7 @@ import { check } from "../assets";
 import { pricing } from "../constants";
 import Button from "./Button";
 
+
 const PricingList = () => {
   return (
     <div className="flex gap-[1rem] max-lg:flex-wrap">
@@ -29,10 +30,11 @@ const PricingList = () => {
 
           <Button
             className="w-full mb-6"
-            href={item.price ? "/pricing" : "mailto:contact@jsmastery.pro"}
+            href={item.price ? "/pricing" : "mailto:arghapramanik15@gmail.com"}
             white={!!item.price}
+            
           >
-            {item.price ? "Get started" : "Contact us"}
+            {item.price ? "Get started" : "Contact us" }
           </Button>
 
           <ul>

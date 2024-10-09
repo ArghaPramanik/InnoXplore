@@ -3,6 +3,21 @@ import { collabApps, collabContent, collabText } from "../constants";
 import Button from "./Button";
 import Section from "./Section";
 import { LeftCurve, RightCurve } from "./design/Collaboration";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+const TryItNow = () => {
+  toast.warn("🚀 Try it Now! 🔧 (Feature in Progress...)", {
+    position: "bottom-right",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+};
+
 
 const Collaboration = () => {
   return (
@@ -27,7 +42,7 @@ const Collaboration = () => {
             ))}
           </ul>
 
-          <Button>Try it now</Button>
+          <Button onClick={TryItNow}>Try it now</Button>
         </div>
 
         <div className="lg:ml-auto xl:w-[38rem] mt-4">
