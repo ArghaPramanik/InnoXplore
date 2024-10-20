@@ -8,23 +8,15 @@ import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
-import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-
-const Hero = () => {
+const Hero = ({ showToast }) => { // Accept showToast prop
   const parallaxRef = useRef(null);
+  const navigate = useNavigate(); // Use navigate
 
   const GetStarted = () => {
-    toast.success("✨ Ready to Explore? Sign-in Feature Launching Soon! 🔑", {
-      position: "bottom-left",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    // Navigate to UnderConstruction page directly
+    navigate('/under-construction'); // Redirect to UnderConstruction page
   };
 
   return (
@@ -38,7 +30,7 @@ const Hero = () => {
       <div className="container relative" ref={parallaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]">
           <h1 className="h1 mb-6">
-            Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
+            Explore the Possibilities of&nbsp;AI&nbsp;Chatting with { }
             <span className="inline-block relative">
               InnoXplore{" "}
               <img
@@ -54,7 +46,7 @@ const Hero = () => {
             Unleash the power of AI within InnoXplore. Upgrade your productivity
             with InnoXplore, the open AI chat app.
           </p>
-          <Button  white onClick={GetStarted}>
+          <Button white onClick={GetStarted}>
             Get started
           </Button>
         </div>

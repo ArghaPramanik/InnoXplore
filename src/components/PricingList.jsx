@@ -1,30 +1,39 @@
 import { check } from "../assets";
 import { pricing } from "../constants";
 import Button from "./Button";
-import { toast } from "react-toastify"; 
-import 'react-toastify/dist/ReactToastify.css';
+import useCustomToast from "../hooks/useCustomToast.jsx"; // Import your custom toast
+
+
 
 const PricingList = () => {
+  const { showToast, ToastContainer } = useCustomToast(); // Use custom toast hook
+
+
+  const contactUs = (
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FBE6A3"><path d="M440-280v-40h80v40h-80Zm0-60v-31q-19-11-29.5-29.5T400-440q0-33 23.5-56.5T480-520q33 0 56.5 23.5T560-440q0 21-10.5 39.5T520-371v31h-80Zm200 18-42-43q11-17 16.5-36t5.5-39q0-20-5.5-39T598-515l42-43q20 26 30 56t10 62q0 32-10 62t-30 56Zm-320 0q-20-26-30-56t-10-62q0-83 58.5-141.5T480-640v-50l90 80-90 80v-50q-58 0-99 41t-41 99q0 20 5.5 39t16.5 36l-42 43ZM240-40q-33 0-56.5-23.5T160-120v-720q0-33 23.5-56.5T240-920h480q33 0 56.5 23.5T800-840v720q0 33-23.5 56.5T720-40H240Zm0-200h480v-480H240v480Zm0 80v40h480v-40H240Zm0-640h480v-40H240v40Zm0-40v40-40Zm0 720v-40 40Z"/></svg>
+  );
+
+  const GetStarted = (
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#75FB4C"><path d="M382-320 155-547l57-57 170 170 366-366 57 57-423 423ZM200-160v-80h560v80H200Z"/></svg>
+  );
+
   const handleGetStarted = () => {
-    toast.success("🚀 Get started feature coming soon! Stay tuned! 🔑",{
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+    showToast("🚀 Get started feature coming soon! Stay tuned! 🔑" ,{
+      position: { bottom: "20px", left: "20px" }, // Adjust the position if necessary
+      background: "#fff",
+      color: "#333",
+      icon: GetStarted ,
+      duration: 2000,
     });
   };
 
   const handleContactUs = () => {
-    toast.info("📧 Feel free to reach out to us at arghapramanik15@gmail.com!",{
-      position: "bottom-left",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+    showToast("📧 Feel free to reach out to us at arghapramanik15@gmail.com!", {
+      position: { bottom: "20px", left: "20px" }, // Adjust the position if necessary
+      background: "#fff",
+      color: "#333",
+      icon: contactUs ,
+      duration: 2000,
     });
   };
 
@@ -73,6 +82,7 @@ const PricingList = () => {
           </ul>
         </div>
       ))}
+      <ToastContainer /> {/* Add the ToastContainer here to display custom toasts */}
     </div>
   );
 };
